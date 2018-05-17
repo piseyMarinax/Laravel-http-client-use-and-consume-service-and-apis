@@ -23,10 +23,6 @@ class StudentController extends ClientController
         $this->validate($request,['studentID' => 'required|numeric']);
         $studentID = $request->get('studentID');
         $student = $this->obtainOneStudent($studentID);
-        if(!$student)
-        {
-            dd("Non student");
-        }
-        return view('students.one-students',['student' => $student ]);
+        return view('students.one-student',['student' => $student ]);
     }
 }

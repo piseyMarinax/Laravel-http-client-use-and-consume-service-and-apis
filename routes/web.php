@@ -16,9 +16,18 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/teachers','TeacherController@getAllTeachers');
-Route::get('/courses','CourseController@getAllCourse');
-
+// Student
 Route::get('/student','StudentController@getInputStudent');
 Route::post('/student','StudentController@postOneStudent');
 Route::get('/students','StudentController@getAllStudents');
+
+// Teacher
+Route::get('/teacher','TeacherController@getInputTeacher');
+Route::post('/teacher','TeacherController@postOneTeacher');
+Route::get('/teachers','TeacherController@getAllTeachers');
+
+// Course
+Route::get('/courses','CourseController@getAllCourse');
+
+
+
