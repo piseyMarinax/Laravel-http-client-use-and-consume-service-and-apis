@@ -50,9 +50,24 @@ class ClientController extends Controller
 
     protected function performPostRequest($url,$parameter=[])
     {
-        $content = $this->performRequest('POST',$url,$parameter);
+        $content = $this->performAuthorizeRequest('POST',$url,$parameter);
+
         $decodedContends = json_decode($content);
+        
         return $decodedContends->data;
+
+    }
+
+    protected function performAuthorizeRequest($method, $url, $formParameters)
+    {
+        $requestParameter['form_params'] = $formParameters;
+
+        $accessToken ="Bearer ". $this->obtainAccessTokent();
+
+        $requestParameter['header']['Authorization'] = $accessToken;
+
+        return $this->performRequest($method, $url, $requestParameter);
+
     }
 
     protected function obtainOneStudent($studentID)

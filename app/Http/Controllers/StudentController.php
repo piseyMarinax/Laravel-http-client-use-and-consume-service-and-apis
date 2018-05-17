@@ -25,4 +25,15 @@ class StudentController extends ClientController
         $student = $this->obtainOneStudent($studentID);
         return view('students.one-student',['student' => $student ]);
     }
+
+    public function getCreateStudent()
+    {
+        return view('students.create-student');
+    }
+
+    public function postCreateStudent(Request $request)
+    {
+        $message = $this->CreateOneStudent($request->all());
+        return  redirect('/students')->with('success',$message);
+    }
 }

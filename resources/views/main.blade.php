@@ -14,4 +14,9 @@
      <li class="list-group-item"><a href="{{ url('/courses') }}">Show all course</a></li>
 </ui>
 
+<ui class="list-group">
+     <li class="list-group-item"><a href="{{ url('/student/create') }}">Create a Specific student</a></li>
+     <li class="list-group-item"><a href="{{ url('/teacher/create') }}">Create a Specific teacher</a></li>
+</ui>
+
 @endsection
