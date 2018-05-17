@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/student','StudentController@getInputStudent');
 Route::post('/student','StudentController@postOneStudent');
 Route::get('/students','StudentController@getAllStudents');
+Route::get('/student/create','StudentController@getCreateStudent');
+Route::post('/student/create','StudentController@postCreateStudent');
 
 // Teacher
 Route::get('/teacher','TeacherController@getInputTeacher');
