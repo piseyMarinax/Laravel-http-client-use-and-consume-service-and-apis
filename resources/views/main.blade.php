@@ -1,11 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-<h2>HTTP Client</h2>
+
+
 <ui class="list-group">
-     <li class="list-group-item"><a href=" ">Show all students</a></li>
-     <li class="list-group-item"><a href=" ">Show all teachers</a></li>
-     <li class="list-group-item"><a href=" ">Show all course</a></li>
+     <li class="list-group-item"><a href="{{ url('/students') }}">Show all students</a></li>
+     <li class="list-group-item"><a href="{{ url('/teachers') }}">Show all teachers</a></li>
+     <li class="list-group-item"><a href="{{ url('/courses') }}">Show all course</a></li>
+</ui>
+<ui class="list-group">
+     <li class="list-group-item"><a href="{{ url('/student') }}">Show a Specific students</a></li>
+     <li class="list-group-item"><a href="{{ url('/teacher') }}">Show all teachers</a></li>
+     <li class="list-group-item"><a href="{{ url('/course') }}">Show all course</a></li>
 </ui>
 
 @endsection

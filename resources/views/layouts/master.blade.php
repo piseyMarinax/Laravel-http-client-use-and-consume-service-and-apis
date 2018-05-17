@@ -13,6 +13,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" integrity="sha384-u/bQvRA/1bobcXlcEYpsEdFVK/vJs3+T+nXLsBYJthmdBuavHvAW6UsmqO2Gd/F9" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="page-header">
+        <a href="{{ url('/') }}"><h1>HTTP <small>Client</small></h1></a> 
+    </div>
     <div class="container-fluid">
         @yield('content')
     </div>
