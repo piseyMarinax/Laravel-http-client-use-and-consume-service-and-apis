@@ -34,6 +34,7 @@ class StudentController extends ClientController
     public function postCreateStudent(Request $request)
     {
         $message = $this->CreateOneStudent($request->all());
-        return  redirect('/students')->with('success',$message);
+        
+        return redirect('/students')->with('success',$message);
     }
 }

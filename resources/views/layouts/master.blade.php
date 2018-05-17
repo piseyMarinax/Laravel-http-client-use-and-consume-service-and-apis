@@ -16,7 +16,7 @@
     <div class="page-header">
         <a href="{{ url('/') }}"><h1>HTTP <small>Client</small></h1></a> 
     </div>
-    @include('components.success')
+    @include('component.success')
     <div class="container-fluid">
         @yield('content')
     </div>

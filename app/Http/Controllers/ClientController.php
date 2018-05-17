@@ -45,9 +45,6 @@ class ClientController extends Controller
         return $accessToken;
     }
 
-
-
-
     protected function performPostRequest($url,$parameter=[])
     {
         $content = $this->performAuthorizeRequest('POST',$url,$parameter);
@@ -64,7 +61,7 @@ class ClientController extends Controller
 
         $accessToken ="Bearer ". $this->obtainAccessTokent();
 
-        $requestParameter['header']['Authorization'] = $accessToken;
+        $requestParameter['headers']['Authorization'] = $accessToken;
 
         return $this->performRequest($method, $url, $requestParameter);
 
