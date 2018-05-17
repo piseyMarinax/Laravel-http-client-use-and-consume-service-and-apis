@@ -27,7 +27,7 @@ Route::post('/teacher','TeacherController@postOneTeacher');
 Route::get('/teachers','TeacherController@getAllTeachers');
 
 // Course
-Route::get('/courses','CourseController@getAllCourse');
+Route::get('/courses','CourseController@getAllCourses');
 
 
 
