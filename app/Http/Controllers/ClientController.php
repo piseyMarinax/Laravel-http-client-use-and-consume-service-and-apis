@@ -52,7 +52,22 @@ class ClientController extends Controller
         $decodedContends = json_decode($content);
         
         return $decodedContends->data;
+    }
+     protected function performPutRequest($url,$parameter=[])
+    {
+        $content = $this->performAuthorizeRequest('PUT',$url,$parameter);
 
+        $decodedContends = json_decode($content);
+        
+        return $decodedContends->data;
+    }
+      protected function performDeleteRequest($url,$parameter=[])
+    {
+        $content = $this->performAuthorizeRequest('DELETE',$url,$parameter);
+
+        $decodedContends = json_decode($content);
+        
+        return $decodedContends->data;
     }
 
     protected function performAuthorizeRequest($method, $url, $formParameters)
@@ -75,6 +90,31 @@ class ClientController extends Controller
     {
         return $this->performPostRequest("https://lumenapi.juandmegon.com/students",$parameters);
     }
+    protected function UpdateOneStudent($parameters)
+    {
+        $studentID = $parameters['studentID'];
+        return $this->performPutRequest("https://lumenapi.juandmegon.com/students/{$studentID}",$parameters);
+    }
+    protected function UpdateOneTeacher($parameters)
+    {
+        $teacherID = $parameters['teacherID'];
+        return $this->performPutRequest("https://lumenapi.juandmegon.com/teachers/{$teacherID}",$parameters);
+    }
+    protected function RemoveOneTeacher($parameters)
+    {
+        $teacherID = $parameters['teacherID'];
+        return $this->performDeleteRequest("https://lumenapi.juandmegon.com/teachers/{$teacherID}",$parameters);
+    }
+     protected function RemoveOneStudent($parameters)
+    {
+        $studentID = $parameters['studentID'];
+        return $this->performDeleteRequest("https://lumenapi.juandmegon.com/students/{$studentID}",$parameters);
+    }
+
+    protected function CreateOneTeacher($parameters)
+    {
+        return $this->performPostRequest("https://lumenapi.juandmegon.com/teachers",$parameters);
+    }
     protected function obtainAllStudents()
     {
         return $this->performGetRequest("https://lumenapi.juandmegon.com/students");
@@ -93,6 +133,14 @@ class ClientController extends Controller
      protected function obtainAllCourses()
     {
         return $this->performGetRequest("https://lumenapi.juandmegon.com/courses");
+    }
+    protected function obtainCourseStudent($courseID)
+    {
+        return $this->performGetRequest("https://lumenapi.juandmegon.com/courses/{$courseID}/students") ;  
+    }
+     protected function obtainCourseTeacher($teacherID)
+    {
+        return $this->performGetRequest("https://lumenapi.juandmegon.com/teachers/{$teacherID}/courses") ;  
     }
 
     

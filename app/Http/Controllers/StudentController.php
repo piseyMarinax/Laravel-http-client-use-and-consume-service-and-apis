@@ -37,4 +37,43 @@ class StudentController extends ClientController
         
         return redirect('/students')->with('success',$message);
     }
+
+
+    // Update student
+    public function getUpdateStudent()
+    {
+        $students = $this->obtainAllStudents();
+        return view('students.select-student',['students' => $students]);
+    }
+
+    public function postUpdateStudent(Request $request)
+    {
+        $studentID = $request->get('studentID');
+        $student = $this->obtainOneStudent($studentID);
+        return view('students.update-student',['student' => $student]);
+    }
+
+    public function putUpdateStudent(Request $request)
+    {
+        $message = $this->UpdateOneStudent($request->all());
+        return redirect('/students')->with('success',$message);
+    }
+
+    // Remove student
+    public function getRemoveStudent()
+    {
+        $students = $this->obtainAllStudents();
+        return view('students.select-remove-student',['students' => $students]);
+    }
+    public function postRemoveStudent(Request $request)
+    {
+        $studentID = $request->get('studentID');
+        $student = $this->obtainOneStudent($studentID);
+        return view('students.confirm-remove-student',['student' => $student]);
+    }
+    public function deleteRemoveStudent(Request $request)
+    {
+        $message = $this->RemoveOneStudent($request->all());
+        return redirect('/students')->with('success',$message);
+    }
 }
